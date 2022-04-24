@@ -7,14 +7,26 @@
         mc:Ignorable="d"
         Title="File Explorer" Height="600" Width="800">
     <Window.Resources>
-        <ContextMenu x:Key="fileCM">
-            <MenuItem Header="Open" Click="OpenFileClicked"/>
-            <MenuItem Header="Delete" Click="DeleteFileClicked"/>
-        </ContextMenu>
-        <ContextMenu x:Key="directoryCM">
-            <MenuItem Header="Create" Click="CreateFileClicked"/>
-            <MenuItem Header="Delete" Click="DeleteDirectoryClicked"/>
-        </ContextMenu>
+        <DataTemplate x:Key="fileCMTemplate">
+            <TextBlock Text="{Binding}">
+                <TextBlock.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Open" Click="OpenFileClicked"/>
+                        <MenuItem Header="Delete" Click="DeleteFileClicked"/>
+                    </ContextMenu>
+                </TextBlock.ContextMenu>
+            </TextBlock>
+        </DataTemplate>
+        <DataTemplate x:Key="dirCMTemplate">
+            <TextBlock Text="{Binding}">
+                <TextBlock.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Create" Click="CreateFileClicked"/>
+                        <MenuItem Header="Delete" Click="DeleteDirectoryClicked"/>
+                    </ContextMenu>
+                </TextBlock.ContextMenu>
+            </TextBlock>
+        </DataTemplate>
     </Window.Resources>
     
     <Grid>
